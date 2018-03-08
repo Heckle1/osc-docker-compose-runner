@@ -1,0 +1,38 @@
+
+- name: Add EPEL repository
+  become: true
+  yum_repository:
+    name: epel
+    description: EPEL YUM repo
+    baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
+
+
+- name: Import Docker CE repository gpg key
+  become: true
+  rpm_key:
+    key: https://download.docker.com/linux/centos/gpg
+    state: present
+
+- name: Add Docker CE repository
+  become: true
+  get_url:
+    url: https://download.docker.com/linux/centos/docker-ce.repo
+    dest: /etc/yum.repos.d/docker-ce.repo
+    force: yes
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Install Docker CE
+  become: true
+  yum:
+    name: docker-ce
+    state: present
+    update_cache: yes
+
+- name: enable service docker
+  become: true
+  systemd:
+    name: docker
+    enabled: yes
+    state: started
