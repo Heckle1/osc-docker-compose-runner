@@ -30,9 +30,16 @@
     state: present
     update_cache: yes
 
-- name: enable service docker
+- name: Enable service Docker
   become: true
   systemd:
     name: docker
     enabled: yes
     state: started
+
+# - name: Deactivate SSHD
+#   become: true
+#   systemd:
+#     name: sshd
+#     enabled: no
+#     state: stopped
