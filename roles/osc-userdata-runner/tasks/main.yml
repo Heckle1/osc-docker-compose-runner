@@ -1,0 +1,20 @@
+
+# That way because file module failed to do so as sudo/root
+- name: Create /opt/osc-docker-compose-runner directory
+  become: true
+  shell: |
+    mkdir -p /opt/osc-docker-compose-runner/
+
+- name: Install docker-compose-runner.sh
+  become: true
+  copy: src='docker-compose-runner.sh' dest='/opt/osc-docker-compose-runner/docker-composer-runner.sh'
+
+- name: Install docker-compose-runner systemd service
+  become: true
+  copy: src='docker-compose-runner.service' dest='/etc/systemd/system/docker-composer-runner.service'
+
+
+- name: docker-compose-runner service enabling
+  become: true
+  systemd: name=docker-composer-runner enabled=yes
+

@@ -10,3 +10,7 @@ Install docker-ce on a Centos7 machine within Outscale Cloud
 ansible-playbook site.yml
 ```
 
+
+# TODO / Why not
+- Be able to have multiple docker-compose
+- Open machine ports after parsing the docker-compose file

@@ -1,6 +1,6 @@
 - hosts: basic-instance
   remote_user: centos
   roles:
-    - osc-userdata-runner
     - machine-setup
+    - osc-userdata-runner
 

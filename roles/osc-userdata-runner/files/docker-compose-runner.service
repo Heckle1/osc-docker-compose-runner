@@ -1,0 +1,10 @@
+[Unit]
+Description=Outscale docker composer runner
+After=cloud-init.service
+
+[Service]
+Type=simple
+ExecStart=/opt/osc-docker-compose-runner/docker-compose-runner.sh
+
+[Install]
+WantedBy=multi-user.target

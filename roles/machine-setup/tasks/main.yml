@@ -6,6 +6,12 @@
     description: EPEL YUM repo
     baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
 
+- name: Install curl
+  become: true
+  yum:
+    name: curl
+    state: present
+    update_cache: yes
 
 - name: Import Docker CE repository gpg key
   become: true
@@ -36,6 +42,20 @@
     name: docker
     enabled: yes
     state: started
+
+#https://docs.docker.com/compose/install/#install-compose
+# - name: Docker compose installation
+#   become: true
+#   shell: |
+#     curl -L https://github.com/docker/compose/releases/download/1.19.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+#     chmod +x /usr/local/bin/docker-compose
+
+- name: Ensure docker-compose is installed and available
+  become: true
+  get_url:
+    url : https://github.com/docker/compose/releases/download/1.19.0/docker-compose-{{ ansible_system }}-{{ ansible_userspace_architecture }}
+    dest: /usr/local/bin/docker-compose
+    mode: 'u+x,g+x'
 
 # - name: Deactivate SSHD
 #   become: true
