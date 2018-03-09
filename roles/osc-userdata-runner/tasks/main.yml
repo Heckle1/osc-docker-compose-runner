@@ -7,14 +7,14 @@
 
 - name: Install docker-compose-runner.sh
   become: true
-  copy: src='docker-compose-runner.sh' dest='/opt/osc-docker-compose-runner/docker-composer-runner.sh'
+  copy: src='docker-compose-runner.sh' dest='/opt/osc-docker-compose-runner/docker-compose-runner.sh'
 
 - name: Install docker-compose-runner systemd service
   become: true
-  copy: src='docker-compose-runner.service' dest='/etc/systemd/system/docker-composer-runner.service'
+  copy: src='docker-compose-runner.service' dest='/etc/systemd/system/docker-compose-runner.service'
 
 
 - name: docker-compose-runner service enabling
   become: true
-  systemd: name=docker-composer-runner enabled=yes
+  systemd: name=docker-compose-runner enabled=yes
 
