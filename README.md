@@ -10,6 +10,10 @@ Install docker-ce on a Centos7 machine within Outscale Cloud
 ansible-playbook site.yml
 ```
 
+3. Create an Outscale Machine Image (OMI) from this Instance
+
+4. Run an Instance with the newly created OMI by passing docker-compose.yml file in the UserData Section
+
 
 # TODO / Why not
 - Be able to have multiple docker-compose
