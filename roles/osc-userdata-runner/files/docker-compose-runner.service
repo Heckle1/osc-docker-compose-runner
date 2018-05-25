@@ -1,6 +1,6 @@
 [Unit]
 Description=Outscale docker composer runner
-After=cloud-init.service
+After=docker.service
 
 [Service]
 Type=simple
