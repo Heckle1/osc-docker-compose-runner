@@ -18,3 +18,6 @@ ansible-playbook site.yml
 # TODO / Why not
 - Be able to have multiple docker-compose
 - Open machine ports after parsing the docker-compose file
+
+# Note
+- Logs are available in the console-output.
