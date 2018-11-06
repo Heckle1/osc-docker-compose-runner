@@ -1,5 +1,7 @@
 # What
-Install docker-ce on a Centos7 machine within Outscale Cloud
+This script installs docker-ce on a Centos7 machine within Outscale Cloud. Make this machine as an Image.
+Now run any VM based on that Image Machine by giving a Dockerfile in the User-Data section (see ./dockerfiles for dockerfile examples).
+The dockefile given will be runned within the new VM.
 
 # Quick start
 
