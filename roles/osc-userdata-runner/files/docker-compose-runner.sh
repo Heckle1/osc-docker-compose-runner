@@ -10,6 +10,7 @@ OSC_DOCKER_COMPOSER_RUNNER_DIRECTORY=/opt/osc-docker-compose-runner/
 USERDATA_LOCKFILE=/opt/osc-docker-compose-runner/user-data-getted.lock
 TTYSO_HEADER=--osc-docker-compose-runner
 
+
 curl --silent http://169.254.169.254/1.0/user-data/ > $FILEPATH
 
 if [ -s "$FILEPATH" ] &&  [ ! -f "$USERDATA_LOCKFILE" ];
